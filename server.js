@@ -7,7 +7,7 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });
-
+app.post("https://secsers.com/api/v2,");
 app.get("/", (req, res) => {
   res.send("Hello, this is the root of the application.");
 });
