@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
-import MyForm from "./component/myForm";
-import { Form } from "./component/form";
-import Balance from "./component/balancetest";
+
+import Form2 from "./component/form2";
 interface Data {
   name: string;
   balance: number;
   city: string;
 }
-interface File {
-  name: string;
-  body: Blob;
-}
+
 function App() {
   <ToastContainer
     position="top-center"
@@ -39,10 +35,6 @@ function App() {
     fetchData();
   }, []);
 
-  const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(e);
-  };
   // console.log(import.meta.env.VITE_API);
 
   return (
@@ -61,10 +53,12 @@ function App() {
             </ul>
           ))
         )}
-        <Form onClick={handelSubmit} />
+
+        <br />
+        <br />
+        <br />
       </div>
-      <MyForm />
-      <Balance />
+      <Form2 />
     </>
   );
 }
