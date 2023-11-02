@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api/v2': {
-        target: 'https://secsers.com', // Replace with your API's base URL
+      '/api': {
+        target: 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
       }
