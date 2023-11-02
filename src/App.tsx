@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { toast, ToastContainer } from "react-toastify";
-
 import Form2 from "./component/form2";
 interface Data {
   name: string;
@@ -9,18 +7,6 @@ interface Data {
 }
 
 function App() {
-  <ToastContainer
-    position="top-center"
-    autoClose={5000}
-    hideProgressBar={false}
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-    theme="dark"
-  />;
   const [data, setData] = useState<Data | null>(null);
   useEffect(() => {
     async function fetchData() {
