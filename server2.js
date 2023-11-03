@@ -29,7 +29,9 @@ app.get("/api/balance", async (req, res) => {
 app.post("/api/postLink", async (req, res) => {
   const link = req.body.link;
   const quantity = req.body.quantity;
-  const url = `${baseUrl}?key=${key}&action=add&service=4801&link=${link}&quantity=${quantity}`;
+  const runs = req.body.runs;
+  const interval = req.body.interval;
+  const url = `${baseUrl}?key=${key}&action=add&service=4801&link=${link}&quantity=${quantity}&runs=${runs}&interval=${interval}`;
 
   console.log(url);
   try {
