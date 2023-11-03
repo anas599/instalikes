@@ -22,10 +22,9 @@ function App() {
     //@ts-ignore
     dispatch(fetchData());
   }, [dispatch]);
-  const bCount = typeof Number(
-    dataRedux.map((index: dataRedux) => index.count).toString()
-  );
-  console.log(bCount);
+  // const bCount = typeof Number(
+  //   dataRedux.map((index: dataRedux) => index.count).toString()
+  // );
   //redux end
 
   return (
