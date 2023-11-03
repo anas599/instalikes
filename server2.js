@@ -17,9 +17,7 @@ app.use((req, res, next) => {
 app.use(cors());
 app.get("/api/balance", async (req, res) => {
   try {
-    const response = await axios.get(
-      `https://secsers.com/api/v2?key=${key}&action=balance`
-    );
+    const response = await axios.get(`${baseUrl}?key=${key}&action=balance`);
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ type: "error", message: error.message });
