@@ -1,3 +1,5 @@
+// disable t fr whole file
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 

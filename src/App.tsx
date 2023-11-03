@@ -19,6 +19,7 @@ function App() {
   const dispatch = useDispatch();
   const dataRedux = useSelector(selectData);
   useEffect(() => {
+    //@ts-ignore
     dispatch(fetchData());
   }, [dispatch]);
   const bCount = typeof Number(

@@ -22,6 +22,7 @@ const Form = () => {
   const dataRedux = useSelector(selectData);
 
   useEffect(() => {
+    //@ts-ignore
     dispatch(fetchData());
   }, [dispatch]);
   const bCount = Number(
