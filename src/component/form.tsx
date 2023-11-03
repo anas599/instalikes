@@ -40,14 +40,14 @@ const Form = () => {
   }) => {
     setLink(e.target.value);
   };
-  const handleChangeQuantity = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeQuantity = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setQuantity(Number(e.target.value));
     setApiQuantity(Number(e.target.value));
   };
-  const handleChangeRuns = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeRuns = (e: React.ChangeEvent<HTMLSelectElement>) => {
     SetRuns(Number(e.target.value));
   };
-  const handleChangeInterval = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInterval = (e: React.ChangeEvent<HTMLSelectElement>) => {
     SetInterval(Number(e.target.value));
   };
   const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -111,47 +111,56 @@ const Form = () => {
         </label>
         <label>
           Quantity:
-          <input
-            min="10"
-            type="number"
+          <select
             value={quantity}
             onChange={handleChangeQuantity}
             className="shadow-sm p bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
             required
-          ></input>
+          >
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="500">500</option>
+          </select>
         </label>
         <label>
           Every (minutes):
-          <input
-            min="60"
-            type="number"
+          <select
             value={interval}
             onChange={handleChangeInterval}
             className="shadow-sm p bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
             required
-          ></input>
-        </label>
+          >
+            <option value="60">60</option>
+            <option value="120">120</option>
+            <option value="180">180</option>
+          </select>
+        </label>{" "}
         <label>
           For How many times?
-          <input
-            min="10"
-            type="number"
+          <select
             value={runs}
             onChange={handleChangeRuns}
             className="shadow-sm p bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
             required
-          ></input>
+          >
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
         </label>
         <label>
           Total Likes you get:
           <input
             value={runs * quantity}
-            onChange={handleChangeRuns}
             className="shadow-sm p bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
             readOnly
           ></input>
         </label>
-
         <div className="flex justify-center">
           <button
             type="submit"
