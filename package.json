@@ -10,10 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.435.0",
     "@reduxjs/toolkit": "^1.9.7",
-    "@types/aws-sdk": "^2.7.0",
-    "aws-sdk": "^2.1480.0",
     "axios": "^1.6.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
