@@ -1,51 +1,57 @@
-import { useState, useEffect } from "react";
-import Form2 from "./component/form2";
-interface Data {
+import { useEffect } from "react";
+import Form from "./component/form";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData, selectData } from "./redux/apiSlice";
+import Table from "./component/table";
+
+interface dataRedux {
+  id: number;
+  title: string;
+  body: string;
   name: string;
-  balance: number;
-  city: string;
+  count: number;
+  items: string;
+  key: string;
+  serivces: string;
 }
-
 function App() {
-  const [data, setData] = useState<Data | null>(null);
+  // redux
+  const dispatch = useDispatch();
+  const dataRedux = useSelector(selectData);
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(import.meta.env.VITE_API);
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-    fetchData();
-  }, []);
-
-  // console.log(import.meta.env.VITE_API);
+    dispatch(fetchData());
+  }, [dispatch]);
+  const bCount = typeof Number(
+    dataRedux.map((index: dataRedux) => index.count).toString()
+  );
+  console.log(bCount);
+  //redux end
 
   return (
-    <>
-      <div className="App">
-        <h1>JSON Data</h1>
-        {data === null ? (
+    <section className="bg-gradient-to-bl from-indigo-900 via-indigo-400 to-indigo-900 h-screen ">
+      <br />
+      <div className="App text-white text-center ">
+        {dataRedux === null ? (
           <p>loading...</p>
         ) : (
-          data &&
-          data.map((item, index) => (
-            <ul key={index}>
-              <li>User name: {item.name}</li>
-              <li>Balance: {item.count}</li>
-              <li>Service: {item.serivces}</li>
-            </ul>
+          dataRedux &&
+          dataRedux.map((item: dataRedux, index: number) => (
+            <section key={index} className="glass p-2 mx-2">
+              <Table text="User name" details={item.name} />
+              <Table
+                text="Balance"
+                details={item.count.toLocaleString("en-US")}
+              />
+              <Table text="Service" details={item.serivces} />
+            </section>
           ))
         )}
 
         <br />
         <br />
-        <br />
       </div>
-      <Form2 />
-    </>
+      <Form />
+    </section>
   );
 }
 
