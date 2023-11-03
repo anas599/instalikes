@@ -5,7 +5,8 @@ import "dotenv/config";
 const app = express();
 // eslint-disable-next-line no-undef
 const key = process.env.API_KEY;
-const baseUrl = "https://secsers.com/api/v2";
+// eslint-disable-next-line no-undef
+const baseUrl = process.env.BASE_URL;
 const PORT = 3001;
 
 app.use(express.json());
