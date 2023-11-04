@@ -63,10 +63,12 @@ const Form = () => {
         console.log("this is respond", response.data);
         setLink("");
         setQuantity(0);
-        toast.success(`Success! You added ${quantity} likes to your post!`);
+        toast.success(
+          `Success! You will add (${quantity}) likes every (${interval}) for (${runs}) times`
+        );
         axios
           .post(import.meta.env.VITE_API, {
-            count: Number(bCount) - quantity,
+            count: Number(bCount) - quantity * runs,
           })
           .then((response) => {
             console.log("second response", response.data);
@@ -79,7 +81,7 @@ const Form = () => {
         console.log("Error:", error.message);
         toast.error("Error! Please check your link again!");
       });
-    console.log("this is respond", apiquantity);
+    console.log("this is respond end", apiquantity);
   };
 
   return (
